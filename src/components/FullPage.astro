@@ -34,14 +34,14 @@ const { names, carrier, date } = Astro.props;
 	<main class='mt-10'>
 		{
 			names ? (
-				<b class='block text-4xl text-center my-5 w-full font-title font-bold tracking-tighter lg:text-5xl'>
+				<b class='block text-5xl text-center my-5 w-full font-title font-bold tracking-tighter'>
 					{names}
 				</b>
 			) : (
 				<input
 					id='names'
 					type='text'
-					class='p-0 text-4xl text-center my-5 w-full font-title font-bold tracking-tighter bg-transparent lg:text-5xl focus:outline-none'
+					class='p-0 text-5xl text-center my-5 w-full font-title font-bold tracking-tighter bg-transparent focus:outline-none'
 					placeholder='[Nombres y apellidos]'
 					name='names'
 					autocomplete='off'
@@ -56,14 +56,14 @@ const { names, carrier, date } = Astro.props;
 		</p>
 		{
 			carrier ? (
-				<b class='block text-4xl text-center my-5 w-full font-title  font-bold tracking-tighter lg:text-5xl'>
+				<b class='block text-5xl text-center my-5 w-full font-title font-bold tracking-tighter'>
 					{carrier}
 				</b>
 			) : (
 				<input
 					id='carrier'
 					type='text'
-					class='p-0 text-4xl text-center my-5 w-full font-title  font-bold tracking-tighter bg-transparent lg:text-5xl focus:outline-none'
+					class='p-0 text-5xl text-center my-5 w-full font-title font-bold tracking-tighter bg-transparent focus:outline-none'
 					placeholder='[Carrera profesional]'
 					name='carrier'
 					autocomplete='off'

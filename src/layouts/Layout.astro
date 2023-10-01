@@ -18,10 +18,10 @@ const { title, description } = Astro.props;
 		<meta name='generator' content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body
-		class='bg-amber-50 print:flex print:h-screen print:items-center print:justify-center [print-color-adjust:exact]'
-	>
-		<Navbar />
+	<body class='bg-amber-50'>
+		<Navbar>
+			<slot name='navbar-button' />
+		</Navbar>
 		<slot />
 	</body>
 </html>
