@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import dayjs from 'dayjs';
+import exMx from 'dayjs/locale/es-mx';
+import FullPage from '../components/FullPage.astro';
+
+dayjs.locale(exMx);
+
+const today = dayjs();
+---
+
+<Layout
+	title='Obtén tu título en la USC'
+	description='Generador de títulos para la Universidad Sideral Carrión'
+>
+	<FullPage date={today} />
+</Layout>

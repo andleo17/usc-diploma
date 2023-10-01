@@ -1,0 +1,119 @@
+---
+import { Image } from 'astro:assets';
+
+import escudo from '../images/escudo.png';
+import uscLogo from '../images/usc logo.svg';
+import firmaSideral from '../images/firma sideral.png';
+import firmaJona from '../images/firma jona.png';
+import dayjs from 'dayjs';
+
+interface Props {
+	names?: string;
+	carrier?: string;
+	date: dayjs.Dayjs;
+}
+
+const { names, carrier, date } = Astro.props;
+---
+
+<div class='py-5 text-lg text-center px-4 select-none lg:text-xl lg:px-20'>
+	<header class='flex justify-between items-center'>
+		<div class='flex flex-col items-center'>
+			<span class='font-bold'>República del Perú</span>
+			<Image
+				class='w-20 h-20 lg:w-52 lg:h-52'
+				src={escudo}
+				alt='Escudo del Perú'
+				width={200}
+				height={200}
+			/>
+		</div>
+		<div>
+			<h1 class='text-4xl font-semibold mb-5 tracking-tight lg:text-5xl'>
+				Universidad Sideral Carrión
+			</h1>
+			<span>Por el presente certifica que</span>
+		</div>
+		<Image
+			class='w-20 h-20 lg:w-52 lg:h-52'
+			src={uscLogo}
+			alt='Escudo USC'
+			width={200}
+			height={200}
+		/>
+	</header>
+	<main class='mb-4'>
+		{
+			names ? (
+				<b class='block text-4xl text-center my-5 w-full font-bold tracking-tighter lg:text-5xl'>
+					{names}
+				</b>
+			) : (
+				<input
+					id='names'
+					type='text'
+					class='p-0 text-4xl text-center my-5 w-full font-bold tracking-tighter bg-transparent lg:text-5xl focus:outline-none'
+					placeholder='[Nombres y apellidos]'
+					name='names'
+					autocomplete='off'
+				/>
+			)
+		}
+		<p>
+			ha superado los estudios correspondientes organizados por la Universidad
+			Sideral Carrión, conforme a un plan de estudios aprobados por el
+			Ministerio de Educación, expide el presente título universitario oficial
+			de
+		</p>
+		{
+			carrier ? (
+				<b class='block text-4xl text-center my-5 w-full font-bold tracking-tighter lg:text-5xl'>
+					{carrier}
+				</b>
+			) : (
+				<input
+					id='carrier'
+					type='text'
+					class='p-0 text-4xl text-center my-5 w-full font-bold tracking-tighter bg-transparent lg:text-5xl focus:outline-none'
+					placeholder='[Carrera profesional]'
+					name='carrier'
+					autocomplete='off'
+				/>
+			)
+		}
+		<p>
+			con validez en todo el territorio nacional, que faculta al interesado para
+			disfrutar los derechos que a este título otorgan las disposiciones
+			vigentes.
+		</p>
+		<span class='block mt-5 text-right italic'
+			>Otorgado el <time datetime={date.toISOString()}
+				>{date.format('DD [de] MMMM [del] YYYY')}</time
+			></span
+		>
+	</main>
+	<footer class='flex justify-around items-center text-base lg:text-lg'>
+		<div class='flex flex-col items-center'>
+			<Image
+				class='w-auto h-20 lg:h-36'
+				src={firmaSideral}
+				alt='Firma Sideral'
+				width={300}
+				height={145}
+			/>
+			<b class='tracking-tight'>Jesús Andrés Luján Carrión</b>
+			<span>Rector de la universidad</span>
+		</div>
+		<div class='flex flex-col items-center'>
+			<Image
+				class='w-auto h-20 lg:h-36'
+				src={firmaJona}
+				alt='Firma Jona'
+				width={300}
+				height={145}
+			/>
+			<b class='tracking-tight'>Jona Roma Mar</b>
+			<span>Supervisor de títulos</span>
+		</div>
+	</footer>
+</div>
