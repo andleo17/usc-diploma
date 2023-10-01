@@ -18,30 +18,37 @@ const { names, carrier, date } = Astro.props;
 
 <div
 	id='diplome'
-	class='max-w-screen-xl mx-auto p-4 text-2xl font-paragraph text-center select-none'
+	class='max-w-screen-xl mx-auto p-4 text-lg md:text-2xl font-paragraph text-center select-none'
 >
 	<header class='flex justify-between items-center'>
-		<div class='flex flex-col items-center gap-2'>
+		<div class='hidden flex-col items-center gap-2 md:flex'>
 			<small class='block font-bold text-base'>República del Perú</small>
 			<Image class='w-36' src={escudo} alt='Escudo del Perú' width={150} />
 		</div>
-		<div>
-			<h1 class='text-6xl font-gothic mb-5'>Universidad Sideral Carrión</h1>
+		<div class='flex-grow'>
+			<h1 class='text-2xl md:text-6xl font-gothic mb-5'>
+				Universidad Sideral Carrión
+			</h1>
 			<span>Por el presente certifica que</span>
 		</div>
-		<Image class='w-36' src={uscLogo} alt='Escudo USC' width={150} />
+		<Image
+			class='w-36 hidden md:block'
+			src={uscLogo}
+			alt='Escudo USC'
+			width={150}
+		/>
 	</header>
 	<main class='mt-10'>
 		{
 			names ? (
-				<b class='block text-5xl text-center my-5 w-full font-title font-bold tracking-tighter'>
+				<b class='block text-2xl text-center my-5 w-full font-title font-bold tracking-tighter md:text-5xl'>
 					{names}
 				</b>
 			) : (
 				<input
 					id='names'
 					type='text'
-					class='p-0 text-5xl text-center my-5 w-full font-title font-bold tracking-tighter bg-transparent focus:outline-none'
+					class='p-0 text-2xl text-center my-5 w-full font-title font-bold tracking-tighter bg-transparent focus:outline-none md:text-5xl'
 					placeholder='[Nombres y apellidos]'
 					name='names'
 					autocomplete='off'
@@ -56,14 +63,14 @@ const { names, carrier, date } = Astro.props;
 		</p>
 		{
 			carrier ? (
-				<b class='block text-5xl text-center my-5 w-full font-title font-bold tracking-tighter'>
+				<b class='block text-2xl text-center my-5 w-full font-title font-bold tracking-tighter md:text-5xl'>
 					{carrier}
 				</b>
 			) : (
 				<input
 					id='carrier'
 					type='text'
-					class='p-0 text-5xl text-center my-5 w-full font-title font-bold tracking-tighter bg-transparent focus:outline-none'
+					class='p-0 text-2xl text-center my-5 w-full font-title font-bold tracking-tighter bg-transparent focus:outline-none md:text-5xl'
 					placeholder='[Carrera profesional]'
 					name='carrier'
 					autocomplete='off'
@@ -81,7 +88,7 @@ const { names, carrier, date } = Astro.props;
 			></span
 		>
 	</main>
-	<footer class='flex justify-around items-center text-base'>
+	<footer class='hidden justify-around items-center text-base md:flex'>
 		<div class='flex flex-col items-center'>
 			<Image
 				class='w-auto h-20 lg:h-36'
